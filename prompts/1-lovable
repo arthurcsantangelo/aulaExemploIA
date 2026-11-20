@@ -1,0 +1,603 @@
+# Objetivo
+
+Crie somente o **front-end de um MVP de lista de tarefas**, com uma interface simples, intuitiva, limpa, responsiva e otimizada.
+
+O sistema deve permitir que o usuário organize tarefas de trabalho, estudos, rotina pessoal ou qualquer outra atividade, acompanhando o que está pendente e o que já foi concluído de acordo com uma data definida pelo próprio usuário.
+
+**Importante:** este projeto deve conter **somente front-end**.
+
+Não implemente:
+
+- Login ou cadastro;
+- Autenticação;
+- Banco de dados;
+- APIs;
+- Backend;
+- Integrações externas;
+- Serviços externos.
+
+Utilize **dados simulados/mockados**, claramente identificados no código como dados de demonstração.
+
+---
+
+# Usuário
+
+O usuário é uma pessoa que precisa organizar suas atividades de rotina, estudos ou trabalho.
+
+Ele precisa conseguir:
+
+- Criar uma tarefa;
+- Definir uma data para conclusão;
+- Visualizar tarefas pendentes;
+- Marcar tarefas como concluídas;
+- Alterar uma tarefa criada anteriormente;
+- Excluir uma tarefa criada incorretamente;
+- Pesquisar tarefas;
+- Filtrar tarefas por título ou data;
+- Visualizar suas atividades de forma organizada.
+
+---
+
+# Problema
+
+O usuário precisa de uma forma simples de visualizar tudo o que precisa fazer, identificar o que já foi concluído e acompanhar tarefas pendentes de acordo com suas datas.
+
+A interface deve evitar excesso de informações e elementos visuais desnecessários.
+
+---
+
+# Páginas
+
+## 1. Página principal — Lista de tarefas
+
+O MVP deve possuir **uma única página principal**.
+
+A página deve apresentar:
+
+### Cabeçalho
+
+- Nome/título da aplicação: **"Lista de Tarefas"**;
+- Uma descrição curta explicando a finalidade da aplicação.
+
+### Área de criação e filtros
+
+A interface deve separar claramente a **criação de tarefas** dos **filtros de pesquisa**.
+
+No desktop, organizar os controles de forma horizontal e intuitiva.
+
+A área deve conter:
+
+**Pesquisa/Filtro → Título da tarefa → Data de conclusão → Adicionar**
+
+### Pesquisa e filtros
+
+Permitir pesquisar tarefas por:
+
+- Título;
+- Data.
+
+Também permitir filtrar por período:
+
+- Todas;
+- Semana;
+- Mês.
+
+O calendário usado nessa área deve servir **somente para filtrar tarefas existentes**.
+
+### Criação de tarefa
+
+O formulário de criação deve possuir:
+
+- Campo para título;
+- Campo para data de conclusão;
+- Botão **"Adicionar"**.
+
+Exemplo:
+
+**Título:** Estudar JavaScript  
+**Data:** 20/11/2026  
+**[Adicionar]**
+
+Não permitir a criação de uma tarefa sem título ou sem data.
+
+---
+
+# Regra de utilização das datas
+
+Para evitar conflitos, a data de criação e a data de filtro devem possuir funções independentes.
+
+### Data da tarefa
+
+A data selecionada no formulário de criação é a data que será atribuída à nova tarefa.
+
+Ao clicar em **"Adicionar"**, utilizar somente:
+
+- Título informado;
+- Data de conclusão informada.
+
+### Calendário de filtro
+
+O calendário utilizado para filtros serve **exclusivamente para filtrar tarefas existentes**.
+
+Ele não deve alterar a data de uma nova tarefa.
+
+O filtro deve possuir a opção:
+
+**"Todas as datas"**
+
+Quando essa opção estiver selecionada, todas as tarefas devem ser exibidas.
+
+### Regra principal
+
+**A data do formulário determina a data da tarefa.**
+
+**A data do calendário de filtro determina somente quais tarefas serão exibidas.**
+
+---
+
+# Lista de tarefas
+
+Abaixo da área de criação e filtros, apresentar a lista de tarefas.
+
+Cada tarefa deve apresentar:
+
+- Checkbox/botão de check;
+- Título;
+- Data de conclusão;
+- Status;
+- Botão **Editar**;
+- Botão **Excluir**.
+
+Exemplo:
+
+**[ ] Estudar JavaScript**  
+Data: 20/11/2026  
+Status: Pendente  
+[Editar] [Excluir]
+
+Quando concluída:
+
+**[✓] Estudar JavaScript**  
+Data: 20/11/2026  
+Status: Concluída
+
+Tarefas concluídas devem apresentar uma diferenciação visual discreta, como texto riscado ou redução de contraste.
+
+Não depender somente da cor para indicar conclusão.
+
+---
+
+# Comportamentos
+
+## Criar tarefa
+
+Ao preencher o título e a data de conclusão, o usuário pode clicar em **"Adicionar"**.
+
+A tarefa deve aparecer imediatamente na lista.
+
+Após criar corretamente, apresentar:
+
+**"Tarefa adicionada com sucesso."**
+
+Caso o título esteja vazio:
+
+**"Não foi possível adicionar a tarefa. Informe um título."**
+
+Caso a data não seja informada:
+
+**"Selecione uma data para a tarefa."**
+
+---
+
+## Concluir tarefa
+
+O usuário pode clicar no checkbox da tarefa.
+
+O status deve alternar entre:
+
+- Pendente;
+- Concluída.
+
+Ao concluir:
+
+**"Tarefa marcada como concluída."**
+
+Ao clicar novamente para reabrir:
+
+**"Tarefa marcada como pendente."**
+
+A alteração deve ocorrer imediatamente na interface.
+
+---
+
+## Editar tarefa
+
+Cada tarefa deve possuir um botão **"Editar"**.
+
+Ao clicar, abrir um modal ou formulário contendo:
+
+- Título atual;
+- Data atual;
+- Botão **Salvar**;
+- Botão **Cancelar**.
+
+Ao salvar corretamente:
+
+**"Tarefa atualizada com sucesso."**
+
+Caso o título esteja vazio:
+
+**"Não foi possível atualizar a tarefa. Informe um título."**
+
+Caso a data seja removida:
+
+**"Selecione uma data para a tarefa."**
+
+A data alterada no formulário deve modificar somente a tarefa que está sendo editada.
+
+---
+
+## Excluir tarefa
+
+Cada tarefa deve possuir um botão **"Excluir"**.
+
+Antes de excluir definitivamente, abrir uma confirmação:
+
+**"Tem certeza que deseja excluir esta tarefa?"**
+
+Botões:
+
+- **Cancelar**
+- **Excluir**
+
+Se o usuário cancelar, a tarefa permanece na lista.
+
+Se confirmar:
+
+1. Remover a tarefa;
+2. Atualizar a lista;
+3. Exibir:
+
+**"Tarefa excluída com sucesso."**
+
+---
+
+# Pesquisa
+
+O usuário pode pesquisar pelo título da tarefa.
+
+A lista deve ser atualizada conforme o termo pesquisado.
+
+Caso nenhuma tarefa corresponda à pesquisa:
+
+**"Nenhuma tarefa encontrada."**
+
+Se houver filtro ativo, disponibilizar:
+
+**"Limpar filtros"**
+
+---
+
+# Filtro por data
+
+O usuário pode selecionar uma data no calendário de filtro.
+
+Ao selecionar uma data, mostrar somente as tarefas correspondentes àquela data.
+
+Deve existir uma opção para retornar para:
+
+**"Todas as datas"**
+
+O filtro não deve alterar as informações das tarefas.
+
+---
+
+# Organização por período
+
+A interface deve permitir visualizar tarefas por:
+
+- Todas;
+- Semana;
+- Mês.
+
+Não criar páginas separadas.
+
+Utilizar filtros simples na própria página.
+
+---
+
+# Feedback de sucesso e erro
+
+A aplicação deve fornecer **feedback visual claro sempre que o usuário realizar uma ação importante**.
+
+Utilizar **toast/notificações temporárias** para ações simples.
+
+## Mensagens de sucesso
+
+- Criar tarefa: **"Tarefa adicionada com sucesso."**
+- Editar tarefa: **"Tarefa atualizada com sucesso."**
+- Concluir tarefa: **"Tarefa marcada como concluída."**
+- Reabrir tarefa: **"Tarefa marcada como pendente."**
+- Excluir tarefa: **"Tarefa excluída com sucesso."**
+
+As mensagens devem desaparecer automaticamente após alguns segundos.
+
+Elas não devem impedir o usuário de continuar utilizando a aplicação.
+
+## Mensagens de erro
+
+Ao tentar adicionar uma tarefa sem título:
+
+**"Não foi possível adicionar a tarefa. Informe um título."**
+
+Ao tentar salvar uma edição sem título:
+
+**"Não foi possível atualizar a tarefa. Informe um título."**
+
+Quando a data obrigatória não for informada:
+
+**"Selecione uma data para a tarefa."**
+
+Para erros inesperados:
+
+**"Não foi possível realizar esta ação. Tente novamente."**
+
+As mensagens de erro devem ser visualmente diferentes das mensagens de sucesso, porém sem utilizar cores excessivamente chamativas.
+
+---
+
+# Estados de carregamento
+
+Mesmo utilizando somente dados simulados, representar visualmente estados de carregamento quando fizer sentido.
+
+Exemplos:
+
+- Botão **Adicionar** → **"Adicionando..."**
+- Botão **Salvar** → **"Salvando..."**
+
+Enquanto uma ação estiver sendo processada, impedir que o usuário dispare repetidamente a mesma ação.
+
+---
+
+# Estados da interface
+
+Implementar visualmente os seguintes estados:
+
+### Estado inicial
+
+Exibir algumas tarefas simuladas para demonstrar o funcionamento.
+
+Deixar claro no código que são **dados simulados**.
+
+### Lista com tarefas
+
+Mostrar tarefas pendentes e concluídas.
+
+### Lista vazia
+
+Exibir:
+
+**"Nenhuma tarefa cadastrada."**
+
+### Pesquisa sem resultado
+
+Exibir:
+
+**"Nenhuma tarefa encontrada."**
+
+### Filtros sem resultado
+
+Exibir:
+
+**"Nenhuma tarefa encontrada para este filtro."**
+
+### Estado de erro
+
+Exibir mensagens claras quando uma ação não puder ser realizada.
+
+### Modal de edição
+
+Mostrar os dados atuais da tarefa.
+
+### Confirmação de exclusão
+
+Solicitar confirmação antes de excluir.
+
+### Tarefa concluída
+
+Mostrar visualmente que a tarefa foi finalizada.
+
+---
+
+# Componentes
+
+Criar componentes reutilizáveis para:
+
+- Cabeçalho;
+- Barra de pesquisa;
+- Filtros;
+- Campo de título;
+- Campo de data;
+- Seletor de data/calendário;
+- Botão Adicionar;
+- Lista de tarefas;
+- Item individual de tarefa;
+- Checkbox/status;
+- Modal de edição;
+- Modal de confirmação;
+- Toast de sucesso;
+- Toast de erro;
+- Mensagens de estado vazio;
+- Mensagens de validação;
+- Estados de carregamento.
+
+---
+
+# Dados simulados
+
+Utilizar uma pequena lista de tarefas mockadas.
+
+Exemplo:
+
+- Estudar JavaScript — 20/11/2026 — Pendente;
+- Fazer atividade do Senac — 19/11/2026 — Concluída;
+- Estudar para prova — 25/11/2026 — Pendente;
+- Organizar projeto — 30/11/2026 — Pendente.
+
+Esses dados são somente para demonstração do front-end.
+
+Não criar persistência em banco de dados.
+
+---
+
+# Responsividade
+
+A aplicação deve funcionar corretamente em:
+
+- Desktop;
+- Tablet;
+- Celular.
+
+No desktop, organizar os controles de forma horizontal e equilibrada.
+
+Em telas menores, permitir que os elementos ocupem linhas diferentes.
+
+No celular:
+
+- Botões devem possuir área de toque confortável;
+- Textos não devem ficar cortados;
+- Formulários devem ocupar a largura disponível;
+- Modais devem se adaptar à tela;
+- Toasts não devem sair da tela;
+- Não permitir rolagem horizontal desnecessária;
+- A lista deve continuar fácil de ler e utilizar.
+
+---
+
+# Acessibilidade
+
+Implementar:
+
+- Labels adequados nos campos;
+- Botões com nomes claros;
+- Checkbox acessível por teclado;
+- Navegação utilizando Tab;
+- Contraste suficiente;
+- Estados de foco visíveis;
+- Mensagens de erro compreensíveis;
+- Feedback de sucesso e erro acessível a tecnologias assistivas;
+- Não depender somente de cor para indicar status;
+- Elementos interativos com tamanho adequado para toque.
+
+---
+
+# Design
+
+Utilizar um design:
+
+- Minimalista;
+- Limpo;
+- Profissional;
+- Intuitivo;
+- Pouco colorido;
+- Organizado;
+- Otimizado.
+
+Utilizar uma paleta predominantemente neutra, com uma cor de destaque discreta.
+
+Evitar:
+
+- Gradientes exagerados;
+- Cores muito fortes;
+- Animações desnecessárias;
+- Elementos decorativos excessivos;
+- Interface visualmente poluída.
+
+A prioridade deve ser:
+
+**legibilidade → simplicidade → organização → facilidade de uso.**
+
+---
+
+# Limites do escopo
+
+O MVP deve conter somente:
+
+- Criar tarefa;
+- Visualizar tarefa;
+- Editar tarefa;
+- Excluir tarefa;
+- Marcar como concluída;
+- Marcar novamente como pendente;
+- Pesquisar por título;
+- Filtrar por data;
+- Filtrar por semana;
+- Filtrar por mês;
+- Feedback de sucesso;
+- Feedback de erro;
+- Confirmação de exclusão;
+- Estados vazios;
+- Estados de carregamento;
+- Interface responsiva;
+- Acessibilidade básica;
+- Dados simulados.
+
+Não implementar:
+
+- Login;
+- Cadastro;
+- Perfil de usuário;
+- Banco de dados;
+- Backend;
+- API;
+- Sincronização;
+- Notificações externas;
+- E-mail;
+- Calendário externo;
+- Google Calendar;
+- Compartilhamento;
+- Sistema de equipes;
+- Prioridades avançadas;
+- Categorias complexas;
+- Chat;
+- Inteligência artificial;
+- Pagamentos;
+- Funcionalidades que não sejam necessárias para o MVP.
+
+---
+
+# Critérios de aceitação visual
+
+O front-end será considerado adequado quando:
+
+1. A página principal apresentar claramente o título da aplicação.
+2. O campo de criação de tarefa estiver visível e fácil de localizar.
+3. O campo de título possuir um campo de data independente.
+4. O botão **"Adicionar"** estiver próximo dos campos de criação.
+5. A pesquisa/filtro estiver claramente separado da criação da tarefa.
+6. O calendário de filtro servir somente para filtrar tarefas.
+7. A lista de tarefas estiver posicionada abaixo dos controles.
+8. Cada tarefa possuir checkbox, título, data, status, editar e excluir.
+9. Tarefas concluídas forem visualmente diferentes das pendentes.
+10. A edição ocorrer por uma interface clara e simples.
+11. A exclusão exigir confirmação.
+12. A pesquisa funcionar com os dados simulados.
+13. O filtro por data funcionar sem alterar as tarefas.
+14. Os filtros de semana e mês funcionarem visualmente.
+15. A criação de uma tarefa apresentar feedback de sucesso.
+16. A edição de uma tarefa apresentar feedback de sucesso.
+17. A conclusão e reabertura de tarefas apresentarem feedback.
+18. A exclusão apresentar confirmação e feedback de sucesso.
+19. Erros de preenchimento apresentarem mensagens claras.
+20. Existirem estados para lista vazia e pesquisa sem resultados.
+21. Existirem estados de carregamento durante ações.
+22. Os toasts não bloquearem a utilização da aplicação.
+23. A interface funcionar adequadamente em desktop, tablet e celular.
+24. A interface possuir navegação básica por teclado.
+25. Não depender somente de cores para comunicar informações.
+26. Não existir excesso de cores, efeitos ou elementos decorativos.
+27. Não houver qualquer implementação de login, backend, banco de dados ou integração externa.
+
+**Prioridade:** simplicidade, organização, responsividade, acessibilidade e clareza visual.
+
+O projeto deve parecer um **MVP funcional e realista**, sem adicionar funcionalidades fora do escopo.
