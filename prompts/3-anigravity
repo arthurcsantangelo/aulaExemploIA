@@ -1,0 +1,20 @@
+*primeiro prompt*
+
+Quero apenas um refinamento visual no frontend, sem alterar a estrutura atual da aplicação.
+
+Personalize a interface seguindo estas diretrizes:
+
+- **Identidade visual:** vermelho e preto inspirados nas cores do Flamengo.
+- **Tema:** claro, com fundo branco ou cinza-claro. Não quero uma interface escura.
+- **Estilo:** clean, moderno, minimalista e organizado.
+- Utilize vermelho nos detalhes, botões e elementos de destaque, mantendo o preto para textos e contrastes.
+- Melhore sutilmente espaçamentos, bordas, sombras, tipografia e hierarquia visual.
+
+**REGRAS IMPORTANTES:**
+- Preserve exatamente a organização atual das páginas e componentes.
+- Não altere funcionalidades, CRUD, lógica, API ou backend.
+- Não adicione recursos ou elementos desnecessários.
+- Não reconstrua nenhuma página.
+- Mantenha a responsividade.
+
+Quero apenas uma melhoria estética, deixando o visual mais limpo e com minha identidade, sem perder a aparência e organização que o projeto já possui.

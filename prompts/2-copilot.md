@@ -1,4 +1,4 @@
-**primeiro prompt principal**
+*primeiro prompt principal*
 
 
 # Contexto do projeto
@@ -471,7 +471,7 @@ Se encontrar um problema, explique brevemente o problema, a causa provável e fa
 
 Priorize uma implementação **simples, funcional e fácil de apresentar em uma avaliação do SENAC**.
 
-**segundo prompt principal**
+*segundo prompt principal*
 
 Quero que você faça uma VALIDAÇÃO GERAL E COMPLETA deste projeto de lista de tarefas.
 
@@ -849,7 +849,7 @@ Não diga que algo está funcionando apenas porque o código parece correto.
 
 Sempre que possível, EXECUTE, TESTE E CONFIRME.
 Se não conseguir executar algum teste, informe explicitamente que ele não pôde ser realizado e explique o motivo.
-**terceiro prompt principal**
+*terceiro prompt principal*
 
 # PROMPT — CORREÇÃO DAS PENDÊNCIAS DE PRODUÇÃO E LINT
 
@@ -1032,7 +1032,7 @@ Não quero que você simplesmente faça os comandos passarem. Quero que identifi
 
 **Corrija as duas pendências, preserve todas as funcionalidades existentes e não declare sucesso sem comprovação.**
 
-**quarto prompt principal**
+*quarto prompt principal*
 
 # OBJETIVO: AUDITORIA E CORREÇÃO DE VULNERABILIDADES NAS DEPENDÊNCIAS
 
@@ -1172,5 +1172,5 @@ Não quero simplesmente zerar os avisos do npm audit. Quero reduzir os riscos re
 
 **Segurança em primeiro lugar, mas sem quebrar funcionalidades que já estão prontas.**
 
-**quinto prompt principal**
+*quinto prompt principal*
 
